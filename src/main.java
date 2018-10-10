@@ -4,6 +4,9 @@ public class main {
     public static void main(String[] args) {
         executeKnapsack();
         executeMaze();
+        executeMCD();
+        executeBasicPrimes();
+        executeEratostenes();
     }
 
     private static void executeKnapsack() {
@@ -17,7 +20,7 @@ public class main {
     }
 
     private static void executeMaze() {
-        int[][] maze = {{0,1,0}, {0,1,0}, {0,0,0}};
+        int[][] maze = {{0, 1, 0}, {0, 1, 0}, {0, 0, 0}};
         Maze m = new Maze(maze, new int[]{3, 0}, new int[]{3, 3});
         int[][] solve = m.SolveMaze();
         printMazeSolve(solve);
@@ -41,5 +44,35 @@ public class main {
             }
             System.out.print("\n");
         }
+    }
+
+    private static void executeMCD() {
+        System.out.println("\nEuclides Algorithm:\n");
+        Euclides euclides = new Euclides();
+        System.out.println("MCD(16,18)= " + euclides.mcd(16, 18));
+        System.out.println("MCD(124,146)= " + euclides.mcd(124, 146));
+        System.out.println("MCD(55,89)= " + euclides.mcd(55, 89));
+        System.out.println("MCD(15,5)= " + euclides.mcd(15, 5));
+        System.out.println("MCD(120,0)= " + euclides.mcd(120, 0));
+        System.out.println("MCD(0,89)= " + euclides.mcd(0, 89));
+    }
+
+    private static void executeEratostenes() {
+        System.out.println("\nEratostenes Algorithm:\n");
+        Eratostenes eratostenes = new Eratostenes();
+        long initialTime = System.currentTimeMillis();
+        System.out.println("Primes Minor than 100000: " + eratostenes.listOfPrimesMinorThanN(100000));
+        long actualTime = System.currentTimeMillis() - initialTime;
+        System.out.println("Elapsed Time: " + actualTime + " milliseconds");
+
+    }
+
+    private static void executeBasicPrimes() {
+        System.out.println("\nBasic Primes Algorithm:\n");
+        BasicPrimes basicPrimes = new BasicPrimes();
+        long initialTime = System.currentTimeMillis();
+        System.out.println("Primes Minor than 100000: " + basicPrimes.getPrimesMinorThanN(100000));
+        long actualTime = System.currentTimeMillis() - initialTime;
+        System.out.println("Elapsed Time: " + actualTime + " milliseconds");
     }
 }
