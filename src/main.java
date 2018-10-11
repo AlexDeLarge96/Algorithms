@@ -2,11 +2,12 @@
 public class main {
 
     public static void main(String[] args) {
-        executeKnapsack();
-        executeMaze();
-        executeMCD();
-        executeBasicPrimes();
-        executeEratostenes();
+//        executeKnapsack();
+//        executeMaze();
+//        executeMCD();
+//        executeBasicPrimes();
+//        executeEratostenes();
+        executePairSum();
     }
 
     private static void executeKnapsack() {
@@ -61,7 +62,7 @@ public class main {
         System.out.println("\nEratostenes Algorithm:\n");
         Eratostenes eratostenes = new Eratostenes();
         long initialTime = System.currentTimeMillis();
-        System.out.println("Primes Minor than 100000: " + eratostenes.listOfPrimesMinorThanN(100000));
+        System.out.println("Primes Minor than 100000: " + eratostenes.listOfPrimesMinorThanN(100000000));
         long actualTime = System.currentTimeMillis() - initialTime;
         System.out.println("Elapsed Time: " + actualTime + " milliseconds");
 
@@ -74,5 +75,12 @@ public class main {
         System.out.println("Primes Minor than 100000: " + basicPrimes.getPrimesMinorThanN(100000));
         long actualTime = System.currentTimeMillis() - initialTime;
         System.out.println("Elapsed Time: " + actualTime + " milliseconds");
+    }
+
+    private static void executePairSum(){
+        int[] numbers=new int[]{1,7,8};
+        PairSum pairSum=new PairSum();
+        int[] result=pairSum.getPairForSum(numbers,15);
+        System.out.println(result[0]+" "+result[1]);
     }
 }
